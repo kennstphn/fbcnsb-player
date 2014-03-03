@@ -155,7 +155,7 @@ body.high-graphics .audio-container ul.tracks > li.playing { -webkit-box-shadow:
 .audio-container ul.tracks > li.locked li.mute a, .audio-container ul.tracks > li.solo li.mute a { opacity: 0.2; }
 .audio-container ul.tracks > li.locked li.solo a, .audio-container ul.tracks > li.solo li.solo a { background-color: #E2E2E2 !important; border-color: #E2E2E2 !important; }
 .audio-container ul.tracks > li .color { display: block; width: 20px; height: 100%; position: absolute; top: 0; right: 0; }
-.audio-container audio { height: 0; overflow: hidden; line-height: 0; width: 0; display: none !important; }
+/* .audio-container audio { height: 0; overflow: hidden; line-height: 0; width: 0; display: none !important; } */
 .audio-container .track-name { padding-left: 5px; color: #4b4b4b; padding-top: 3px; }
 .audio-container .main-control { padding: 0 0 8px 145px; }
 .audio-container .main-control ul { width: 145px; left: 0; top: 0; }

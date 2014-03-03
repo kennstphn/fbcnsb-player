@@ -18,9 +18,9 @@ class makeplayer {
 
 	public function buildFolderTree()
 	{
-		try
+        try
 		{
-			$folders = $this->getFolderList($this->media_root);
+			$folders = $this->getFilesystemList($this->media_root);
 			return $folders;
 
 		}
@@ -41,17 +41,48 @@ class makeplayer {
 		return $this->media_root;
 	}
 
-	public function getFolderList($root)
+	public function getFilesystemList($root)
 	{
-		if (! is_dir($root))
+        if (! is_dir($root))
 		{
 			throw new Exception('The folder ' . $root . ' does not exist!');
 			return false;
 		}
 
-		$folders = new DirectoryIterator($root);
+		$folders = new FilesystemIterator($root);
 
 		return $folders;
 	}
+
+    public function getSongItems()
+    {
+        $songs = array();
+        foreach ($this->getFilesystemList($this->media_root) as $list_item)
+        {
+            $song = new song;
+            $song->setSongTitle(basename($list_item->getRealPath()));
+            $song->setSongPath($list_item->getRealPath());
+            $song->setSongTracks($this->getTrackItems($list_item->getRealPath()));
+
+            $songs[] = $song;
+        }
+
+        return $songs;
+
+    }
+
+    public function getTrackItems($songPath)
+    {
+        $tracks = array();
+        foreach ($this->getFilesystemList($songPath) as $track_item)
+        {
+            $track = new track;
+
+            $track->setTrackTitle(basename($track_item->getRealPath()));
+            $track->setTrackPath($track_item->getRealPath());
+            $tracks[] = $track;
+        }
+        return $tracks;
+    }
 
 }

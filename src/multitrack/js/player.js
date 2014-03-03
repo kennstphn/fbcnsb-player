@@ -249,6 +249,7 @@ initPlayer = function(containerID) {
 	container.find(".tracks audio").each(function(i, value){
 		var that = $(this);
 		that.attr('container', containerID);
+        that.attr('controls', 'controls'    );
 		players[containerID].tracks.push(that[0]);
 		players[containerID].fft.push({});
 		//load track
