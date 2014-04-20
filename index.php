@@ -12,18 +12,19 @@ require_once('src/makeplayer.class.php');
 require_once('src/tracks.class.php');
 
 // Configure root of the media folder.
-define('MEDIA_ROOT', __DIR__ . '/media');
+define('MEDIA_ROOT',  'media');
 
 ?>
 <html lang="en">
 <head>
 	<!-- Bootstrap core CSS -->
+	<link href="src/multitrack/css/css/screen.css" rel="stylesheet">
 	<link href="src/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="src/multitrack/css/css/screen.css" rel="stylesheet">
+
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar navbar-inverse" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -36,7 +37,6 @@ define('MEDIA_ROOT', __DIR__ . '/media');
             </div>
         </div>
     </div>
-
 	<div class="container">
 		<h3>Testing</h3>
 
@@ -63,12 +63,12 @@ define('MEDIA_ROOT', __DIR__ . '/media');
                                 </h4>
                             </div>
                             <div class="modal-body">
-                                <div class='audio-container' name='Example with existing sources'>
+                                <div class="audio-container" name="<?php echo  $songItem->getSongTitle(); ?>">
+
                                     <?php foreach($songItem->getSongTracks() as $tracks): ?>
-                                        <?php echo $tracks->getTrackTitle(); ?>
-                                        <audio name="<?php echo $tracks->getTrackTitle(); ?>"
+										<audio name="<?php echo $tracks->getTrackTitle(); ?>"
                                                url="<?php echo $tracks->getTrackPath(); ?>"
-                                               controls>
+                                               >
                                         </audio>
                                     <?php endforeach; ?>
                                 </div>
@@ -82,10 +82,10 @@ define('MEDIA_ROOT', __DIR__ . '/media');
                     </div>
                 </div>
             </article>
-            <?php var_dump($songItem); ?>
         <?php endforeach; ?>
 	</div>
 	<script src="src/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/jquery-migrate/jquery-migrate.min.js"></script>
 	<script src="src/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="src/multitrack/js/player.js"></script>
 </body>

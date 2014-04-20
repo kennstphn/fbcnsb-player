@@ -61,10 +61,13 @@ class makeplayer {
         {
             $song = new song;
             $song->setSongTitle(basename($list_item->getRealPath()));
-            $song->setSongPath($list_item->getRealPath());
+            $song->setSongPath($list_item->getFilename());
+
             $song->setSongTracks($this->getTrackItems($list_item->getRealPath()));
 
             $songs[] = $song;
+
+
         }
 
         return $songs;
@@ -79,7 +82,7 @@ class makeplayer {
             $track = new track;
 
             $track->setTrackTitle(basename($track_item->getRealPath()));
-            $track->setTrackPath($track_item->getRealPath());
+            $track->setTrackPath('/' . MEDIA_ROOT . '/' . basename($songPath) . '/' . basename($track_item->getRealPath()));
             $tracks[] = $track;
         }
         return $tracks;

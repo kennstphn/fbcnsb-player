@@ -47,7 +47,7 @@ class song
         return $this->songTitle = $title;
     }
 
-    public function setSongTracks(array $tracks)
+    public function setSongTracks($tracks)
     {
         return $this->songTracks = $tracks;
     }
