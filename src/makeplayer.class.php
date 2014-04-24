@@ -82,7 +82,7 @@ class makeplayer {
             $track = new track;
 
             $track->setTrackTitle(basename($track_item->getRealPath()));
-            $track->setTrackPath('/' . MEDIA_ROOT . '/' . basename($songPath) . '/' . basename($track_item->getRealPath()));
+            $track->setTrackPath( MEDIA_ROOT . '/' . basename($songPath) . '/' . basename($track_item->getRealPath()));
             $tracks[] = $track;
         }
         return $tracks;

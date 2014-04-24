@@ -12,7 +12,7 @@ require_once('src/makeplayer.class.php');
 require_once('src/tracks.class.php');
 
 // Configure root of the media folder.
-define('MEDIA_ROOT',  'media');
+define('MEDIA_ROOT', 'media');
 
 ?>
 <html lang="en">
@@ -85,7 +85,7 @@ define('MEDIA_ROOT',  'media');
         <?php endforeach; ?>
 	</div>
 	<script src="src/jquery/dist/jquery.min.js"></script>
-	<script src="bower_components/jquery-migrate/jquery-migrate.min.js"></script>
+	<script src="src/jquery-migrate/jquery-migrate.min.js"></script>
 	<script src="src/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="src/multitrack/js/player.js"></script>
 </body>
